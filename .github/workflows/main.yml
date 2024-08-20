@@ -9,23 +9,29 @@ jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+    
     - name: Install pipenv
       run: pipx install pipenv
-    - uses: actions/setup-python@v2
+    - uses: actions/setup-python@v5
       with:
         python-version: '3.9'
         cache: 'pipenv'
+   
     - run: pipenv install --python `which python`
+    
     - name: Install importlib-metadata
       run: pipenv install importlib-metadata
+    
     - name: Run scraper
       run: pipenv run jupyter execute scraper.ipynb
+    
     - name: Add and commit	
       run: |
         git add .	
         git config user.name "Automated"	
         git config user.email "actions@users.noreply.github.com"	
         git commit -m "Latest data" 	
+    
     - name: Push	
       run: git push
