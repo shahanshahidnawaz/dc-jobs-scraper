@@ -17,6 +17,8 @@ jobs:
         python-version: '3.9'
         cache: 'pipenv'
     - run: pipenv install --python `which python`
+    - name: Install importlib-metadata
+      run: pip install importlib-metadata
     - name: Run scraper
       run: pipenv run jupyter execute scraper.ipynb
     - name: Add and commit	
