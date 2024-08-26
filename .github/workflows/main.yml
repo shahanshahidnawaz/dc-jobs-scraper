@@ -2,8 +2,7 @@ name: Scrape
 
 on:
   schedule:
-    - cron: "0 13 * * *" # 8 a.m. Eastern every day
-  workflow_dispatch:
+    - cron: "0 12 * * *" # 8 a.m. Eastern every day
 
 jobs:
   scrape:
@@ -16,18 +15,9 @@ jobs:
     - uses: actions/setup-python@v5
       with:
         python-version: '3.9'
-        cache: 'pipenv'
-   
-    - run: pipenv install --python `which python`
-    
-    - name: Install importlib-metadata
-      run: pipenv install importlib-metadata
 
-    - name: Install Jupyter Notebook
-      run: pip install jupyter
-    
-    - name: Run scraper
-      run: pipenv run jupyter execute scraper.ipynb
+    - name: Run Scraper
+      run: python scraper.py
     
     - name: Add and commit	
       run: |
