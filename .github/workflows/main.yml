@@ -16,6 +16,10 @@ jobs:
       with:
         python-version: '3.9'
 
+    - run: pipenv install --python `which python`
+    - name: Install importlib-metadata
+      run: pipenv install importlib-metadata
+
     - name: Run Scraper
       run: python scraper.py
     
