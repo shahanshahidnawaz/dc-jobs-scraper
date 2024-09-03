@@ -1,8 +1,7 @@
 name: Daily dcjobs.com Scrape
 
 on:
-  schedule:
-    - cron: "0 13 * * *" # 8 a.m. Eastern every day
+  workflow_dispatch:
 
 jobs:
   scrape:
@@ -10,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-          fetch-depth: 0
+        ref: ${{ github.ref_name }}
     
     - name: Install pipenv
       run: pipx install pipenv
