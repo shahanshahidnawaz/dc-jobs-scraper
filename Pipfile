@@ -4,14 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-importlib-metadata = "*"
-
-[dev-packages]
-jupyterlab = "*"
 datetime = "*"
 requests = "*"
 bs4 = "*"
-importlib-metadata = "*"
+
+[dev-packages]
 
 [requires]
 python_version = "3.9"

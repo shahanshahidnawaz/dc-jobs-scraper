@@ -1,8 +1,8 @@
-name: Scrape
+name: Daily dcjobs.com Scrape
 
 on:
   schedule:
-    - cron: "0 12 * * *" # 8 a.m. Eastern every day
+    - cron: "0 13 * * *" # 8 a.m. Eastern every day
 
 jobs:
   scrape:
@@ -15,10 +15,12 @@ jobs:
     - uses: actions/setup-python@v5
       with:
         python-version: '3.9'
-
-    - run: pipenv install --python `which python`
-    - name: Install importlib-metadata
-      run: pipenv install importlib-metadata
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pipenv
+        pipenv install
 
     - name: Run Scraper
       run: python scraper.py
