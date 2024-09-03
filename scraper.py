@@ -18,9 +18,6 @@ csvFile = str(now.date())+".csv"
 titles = ['Data', 'Program', 'Manager', 'Business', 'Analyst', 'Engineer']
 clearance = ['Security','Clearance','Certification']
 
-print(os.getcwd())
-print(os.listdir())
-
 for i in range(0,pagesToRead+1):
   if i == 0:
     link = "https://www.dcjobs.com/jobs.asp?pagemode=20&domain_state_code=DC&location_name_1=Washington%2C+DC&location_id_1=528&location_type_1=C&qs_domain_id=33&keywords=&client_location_name_1=Washington%2C+DC"
